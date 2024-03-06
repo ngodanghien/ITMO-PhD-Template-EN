@@ -1,0 +1,106 @@
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
+\renewcommand{\figurename}{Рисунок}
+\renewcommand{\tablename}{Таблица}
+\renewcommand\thesubfigure{\asbuk{subfigure}}
+\chapter*{Реферат}
+\addcontentsline{toc}{chapter}{Реферат} %%To manually add unnumbered section, use the command \addcontentsline.
+
+\begin{center}
+    Общая характеристика диссертации
+\end{center}
+
+\paragraph*{Актуальность.}
+
+\paragraph*{Цель исследования.}
+\paragraph*{Научные задачи.}
+
+\paragraph*{Методы исследования.}
+
+\paragraph*{Основные положения, выносимые на защиту.}
+%\begin{enumerate}
+%    \item a%\statementOneRU
+%    \item b%\statementTwoRU 
+%\end{enumerate}
+
+\paragraph*{Научная новизна.}
+
+\paragraph*{Теоретическая значимость.}
+\paragraph*{Практическая значимость.}
+\paragraph*{Достоверность.}
+\paragraph*{Аппробация работы.}
+Основные результаты диссертации докладывались на следующих конференциях:
+\begin{enumerate}
+	\item \textcolor{blue}{The 22nd IFAC World Congress}, Yokohama, Japan.  9–-14 июля 2023 г.
+	\item \textcolor{blue}{The 63rd IEEE Conference on Decision and Control (CDC-2024)}, Milan, Italy. 16--19 декабря 2024 г.
+	\item \textcolor{blue}{XIV Всероссийское совещание по проблемам управления (ВСПУ-2024)}, Россия, Москва, ИПУ РАН. 17--20 июня 2024 г.
+\end{enumerate}
+\paragraph*{Личный вклад автора.}
+
+
+\paragraph*{Объём и структура работы.}
+Диссертация состоит из введения,
+\formbytotal{totalchapter}{глав}{ы}{}{},
+заключения и
+\formbytotal{totalappendix}{приложен}{ия}{ий}{}.
+%% на случай ошибок оставляю исходный кусок на месте, закомментированным
+%Полный объём диссертации составляет  \ref*{TotPages}~страницу
+%с~\totalfigures{}~рисунками и~\totaltables{}~таблицами. Список литературы
+%содержит \total{citenum}~наименований.
+%
+Полный объём диссертации составляет
+\formbytotal{TotPages}{страниц}{у}{ы}{}, включая
+\formbytotal{totalcount@figure}{рисун}{ок}{ка}{ков} и
+\formbytotal{totalcount@table}{таблиц}{у}{ы}{}.
+Список литературы содержит
+\formbytotal{citenum}{наименован}{ие}{ия}{ий}.
+
+
+\newpage
+\section*{Основное содержание работы}
+
+В Главе~\ref{ch:ch1}...
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=0.4\linewidth]{images/knuth}
+%	\caption{Knuth}
+%	\label{fig:my_label2}
+%\end{figure}
+%\begin{table}
+%	\centering
+%	\captionsetup{justification=centering} % выравнивание подписи по-центру
+%	\caption{Основные величины СИ}%\label{tab:unit:base}
+%	\begin{tabular}{llc}
+%		\toprule
+%		Название  & Команда                 & Символ         \\
+%		\midrule
+%		Ампер     & \verb|\ampere| & \si{\ampere}   \\
+%		Кандела   & \verb|\candela| & \si{\candela}  \\
+%		\bottomrule
+%	\end{tabular}
+%\end{table}
+%\begin{figure}
+%	\captionsetup[subfloat]{position=below}
+%	\centering
+%	\subfloat[caption fig (a).]{\includegraphics[scale=0.5]{example-image-a}\label{fig2:sub1}} 
+%	\hspace{0.5cm} %\qquad %\vfill
+%	\subfloat[caption fig (b).]{\includegraphics[scale=0.5]{example-image-b}\label{fig2:sub2}}
+%	\vspace{0.5cm}
+%	\caption{Example using subfloat}\label{fig:subfloat}
+%\end{figure}
+
+\section*{Публикации автора по теме диссертации}
+
+Основные результаты по теме диссертации изложены в \theAllPapers~публикациях. 
+Из них \theScopusPapers~опубликовано в изданиях, индексируемых в базе цитирования Scopus, 
+из них \theVakPapers~изданы в журналах, рекомендованных ВАК. 
+%%Также имеется 1 свидетельство о государственной регистрации программ для ЭВМ.
+%
+
+В международных изданиях, индексируемых в базе данных Scopus, Web of Science:
+\insertpapperScopus
+
+%В изданиях из перечня ВАК РФ:\\
+
+В иных изданиях:
+\insertpapperOther

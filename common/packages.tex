@@ -1,0 +1,152 @@
+\usepackage{geometry}
+\usepackage{comment}    % Позволяет убирать блоки текста (добавляет
+% окружение comment и команду \excludecomment)
+
+%%% Математические пакеты %%%
+\usepackage{amsthm,amsmath,amscd}   % Математические дополнения от AMS
+\usepackage{amsfonts,amssymb}       % Математические дополнения от AMS
+\usepackage{mathtools}              % Добавляет окружение multlined
+\usepackage{xfrac}                  % Красивые дроби
+\usepackage[
+locale = DE,
+list-separator       = {;\,},
+list-final-separator = {;\,},
+list-pair-separator  = {;\,},
+list-units           = single,
+range-units          = single,
+range-phrase={\text{\ensuremath{-}}},
+% quotient-mode        = fraction, % красивые дроби могут не соответствовать ГОСТ
+fraction-function    = \sfrac,
+separate-uncertainty,
+]{siunitx}[=v2]                 % Размерности SI
+\sisetup{inter-unit-product = \ensuremath{{}\cdot{}}}
+
+%https://ctan.org/pkg/afterpage 
+%– Execute command after the next page break
+%- Để sử dụng \afterpage{\clearpage}  thay cho \clearpage??
+% cơ bản giống nhau, ko khác gì mấy.
+%%% Для добавления Стр. над номерами страниц в оглавлении
+%%% http://tex.stackexchange.com/a/306950
+%\usepackage{afterpage}
+
+%%% enumitem – Control layout of itemize, enumerate, description
+%https://mirror.macomnet.net/pub/CTAN/macros/latex/contrib/enumitem/enumitem.pdf
+\usepackage{enumitem}
+%To remove the vertical space altogether in all lists: \setlist{nosep}
+% A first pattern aligns the label with the surrounding \parindent while the item body is indented depending on the label and a fixed labelsep: labelindent = \parindent, leftmargin = *
+\setlist{ %% Каждый пункт, подпункт и перечисление записывают с абзацного отступа (ГОСТ 2.105-95, 4.1.8)
+	nosep,
+	labelindent=\parindent,
+	leftmargin=*
+}
+
+%%% Таблицы %%%
+\usepackage{longtable,ltcaption} % Длинные таблицы
+\usepackage{multirow,makecell}   % Улучшенное форматирование таблиц
+\usepackage{tabulary}      % таблицы с автоматически подбирающейся
+\usepackage{threeparttable}      % автоматический подгон ширины подписи таблицы
+
+% шириной столбцов (tabu обязательно до hyperref вызывать)
+%%% Таблицы %%%
+%\DeclareCaptionLabelSeparator{tabsep}{\tablabelsep} % нумерация таблиц
+%\DeclareCaptionFormat{split}{\splitformatlabel#1\par\splitformattext#3}
+
+%\usepackage[⟨options⟩]{caption}
+\usepackage{caption}                % caption – Customising captions in floating environments https://ctan.org/pkg/subcaption
+%https://github.com/kia999/babel-russian/blob/master/russianb.dtx#L958-L967
+%2021-01-04 version 1.3m
+%* The macro `\cyrdash` that prints Cyrillic dash has been changed.
+% Now it is alias of `\textemdash` in all encodings.
+%You can define your own caption label separators with\DeclareCaption-
+%LabelSeparator \DeclareCaptionLabelSeparator{⟨name⟩}{⟨code⟩}
+\DeclareCaptionLabelSeparator{tabsep}{\textemdash} % нумерация таблиц
+% \captionsetup[⟨float type⟩]{⟨options⟩}
+\captionsetup[table]{
+	format=plain,                % формат подписи (plain|hang)
+	font=normal,                      % нормальные размер, цвет, стиль шрифта
+	skip=.0pt,                        % отбивка под подписью
+	parskip=.0pt,                     % отбивка между параграфами подписи
+	position=above,                   % положение подписи
+	justification=centering, %justified,           % центровка
+	indent=0cm,               	 		% смещение строк после первой
+	labelsep=tabsep,%endash,                  % thay dấu : thành "--" (ГОСТ 2.105, 4.3.1)
+	singlelinecheck=false, % не выравнивать по центру, если умещается в одну строку
+}
+% Sẽ tự động điều chỉnh bên Figure, ko cần cấu hình lại mỗi lần gọi: \figure
+\captionsetup[figure]{
+	format=plain,                     % формат подписи (plain|hang)
+	font=normal,                      % нормальные размер, цвет, стиль шрифта
+	skip=1.5pt,                       % khoảng cách giữa hình và caption. (default=0pt)
+	parskip=.0pt,                     % отбивка между параграфами подписи
+	position=below,                   % положение подписи
+	singlelinecheck=true,             % выравнивание по центру, если умещается в одну строку
+	justification=centerlast,         % центровка
+	labelsep=tabsep,                  % Sử dụng "--" giống table.
+}
+%You can define your own caption fonts wit \DeclareCaptionFont{⟨name⟩}{⟨code⟩} .
+% e.g. \DeclareCaptionFont{bf}{\bfseries}
+%https://mirror.truenetwork.ru/CTAN/macros/latex/contrib/caption/subcaption.pdf
+\usepackage{subcaption}             % Support for sub-captions
+%\DeclareCaptionSubType[⟨numbering scheme⟩]{⟨type⟩
+%%% Подписи подрисунков %%%
+\DeclareCaptionSubType{figure} % thêm caption vào hình phụ.
+% cấu hình 
+\captionsetup[subfloat]{
+	%labelfont=norm,                 % нормальный размер подписей подрисунков
+	%textfont=norm,                  % нормальный размер подписей подрисунков
+	labelsep=space,                 % разделитель
+	labelformat=brace,              % одна скобка справа от номера
+	justification=centering,        % центровка
+	singlelinecheck=true,           % выравнивание по центру, если умещается в одну строку
+	skip=.0pt,            			% отбивка над подписью
+	parskip=.0pt,                   % отбивка между параграфами подписи
+	position=below,                 % положение подписи
+}
+% The default numbering scheme is \alph, đánh theo English a), b) ...
+\renewcommand{\thesubfigure}{\alph{subfigure}}
+% Đánh số hình phụ theo tiếng Nga như: а), б), ...
+%\renewcommand\thesubfigure{\asbuk{subfigure}} % нумерация подрисунков	
+
+
+%%% Изображения %%%
+\usepackage{graphicx}
+\graphicspath{{images/}{Dissertation/images/}}         % Пути к изображениям
+
+
+\usepackage{xcolor}
+%using: \textcolor{⟨color ⟩}{⟨text⟩}; \color{⟨color}
+% \definecolor[⟨type⟩]{⟨name⟩}{⟨model-list⟩}{⟨spec-list⟩}, e.g. \definecolor{red}{rgb}{1,0,0},
+%\usepackage[dvipsnames, table]{xcolor} % Совместимо с tikz
+\usepackage{tikz}                   % Продвинутый пакет векторной графики
+%\usetikzlibrary{chains}             % Для примера tikz рисунка
+%\usetikzlibrary{shapes.geometric}   % Для примера tikz рисунка
+%\usetikzlibrary{shapes.symbols}     % Для примера tikz рисунка
+%\usetikzlibrary{arrows}             % Для примера tikz рисунка
+
+%SIÊU LIÊN KẾT
+%https://latexcolor.com/
+\definecolor{linkcolor}{rgb}{0.9,0,0} % hơi đỏ.
+\definecolor{citecolor}{rgb}{0,0.6,0} % xanh lá nhạt dịu
+\definecolor{urlcolor}{rgb}{0,0,1}	  % blue
+
+\usepackage{hyperref}
+\hypersetup{
+	linktocpage=true,           % ссылки с номера страницы в оглавлении, списке таблиц и списке рисунков
+	plainpages=false,           % Forces page anchors to be named by the Arabic form  of the page number, rather than the formatted form
+	colorlinks=true,                 % default=false. Nếu =true, thì các ô vuông xung quanh sẽ mất, thay vào đó là màu sắc tương ứng cho các link, cite, url.
+	linkcolor=linkcolor,%red,      % default: red (color of links ref, eqref, ...)
+	citecolor=citecolor, %green,    % default: green, color of citation links
+	urlcolor=blue, %magenta,%[rgb]{0,0,1}          % magenta Color for linked URLs (default)
+	pdftitle={PhD Thesis},    % Заголовок
+	pdfauthor={Dang Hien Ngo},  % Автор
+	%pdfsubject={2.3.1 Control in system},      % Тема
+	pdfcreator={hiennd},     % Создатель, Приложение
+	%pdfproducer={Производитель},% Производитель, Производитель PDF
+	%pdfkeywords={},    % Ключевые слова
+	pdflang={en},
+}
+%\usepackage{bookmark} %\belowpdfbookmark{text1}{contents}
+
+%https://ctan.altspu.ru/macros/latex/contrib/pdfpages/pdfpages.pdf
+\usepackage{pdflscape}		% pdfpages package requires the following packages
+\usepackage{pdfpages}       %This package simplifies the insertion of external multi-page PDF file.

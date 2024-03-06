@@ -1,0 +1,34 @@
+\documentclass[a4paper,14pt,oneside,openany]{memoir}
+
+\input{common/packages}		% Declare & setting the use of related packages
+\input{common/fonts}		% Configure to use russian font
+\input{common/styles}		% Format theme memoir follow ITMO style
+\input{common/counter}
+\input{biblio/biblatex}
+\input{biblio/author}		% About PhD Student and publications.  
+
+\listfiles	%for debug
+
+\begin{document}
+
+	\include{Dissertation/title}           	% Титульный лист
+	\include{Dissertation/contents}        	% Оглавление
+	\include{Dissertation/syn_ru} 			% реферат на русском
+	\include{Dissertation/syn_en} 			% реферат на английском
+	\include{Dissertation/introduction}    	% Введение
+	
+	\include{Dissertation/chapter1}         % Глава 1
+	\include{Dissertation/chapter2}         % Глава 2
+	\include{Dissertation/chapter3}         % Глава 3
+	\include{Dissertation/chapter4}         % Глава 4
+	\include{Dissertation/conclusion}      	% Заклю чение
+	\include{Dissertation/acronyms}        	% Список сокращений и условных обозначений
+	\include{Dissertation/dictionary}      	% Словарь терминов
+	\include{Dissertation/lists}           	% Списки таблиц и изображений
+	\include{Dissertation/references}      	% Список литературы
+	\include{Dissertation/acknowledgements} % Благодарности
+	\appendix
+	\include{Dissertation/appendix}       	% Приложения, тут же свои публикации
+	\include{Dissertation/my_publications}
+	
+\end{document}

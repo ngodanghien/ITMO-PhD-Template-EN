@@ -1,0 +1,30 @@
+%%% Реализация библиографии пакетами biblatex и biblatex-gost с использованием движка biber %%%
+
+\usepackage{csquotes} % biblatex рекомендует его подключать
+%style=gost-numeric == Оформление библиографии по ГОСТ Р 7.0.5—2008
+%https://ctan.math.illinois.edu/macros/latex/contrib/biblatex-contrib/biblatex-gost/doc/biblatex-gost.pdf
+%https://en.wikibooks.org/wiki/LaTeX/Bibliographies_with_biblatex_and_biber
+\usepackage[%
+    backend=biber,
+    bibencoding=utf8,
+    sorting=none,
+    style=gost-numeric,
+    language=autobib,
+    autolang=other,
+    clearlang=true,
+    defernumbers=true,
+    sortcites=true,
+    doi=false,
+    isbn=false,
+]{biblatex}
+
+\addbibresource{biblio/references.bib}
+
+%%% citenum là 1 counter được khai báo trước đó, sử dụng \AtEveryBibitem để tự động tăng lên 1 biến đếm mỗi khi có lệnh liên quan \cite{} được gọi.
+% https://tex.stackexchange.com/a/202797
+% use: \usepackage{totcount} 
+\newtotcounter{citenum}
+% Macro \AtEveryBibitem{}. From package: biblatex.
+\AtEveryBibitem{\stepcounter{citenum}}
+% for multiple \printbibliography calls the counter can be reset with \AtNextBibliography.
+% use: This document contains \total{citnum}\ references.

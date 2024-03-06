@@ -1,0 +1,50 @@
+\chapter{Third chapter}
+\label{ch:ch3}
+\section{}\label{sec:ch3/sec1}
+
+\section{Use caption [subfloat]}\label{sec:ch3/sect2}
+If subfloat (subfigure) is not used in the thesis, a warning will appear:
+
+{\color{brown}
+	\begin{verbatim}
+		Package caption Warning: Unused \captionsetup[subfloat]
+	\end{verbatim}
+}
+
+Use the following command if you want the sub caption to be in Russian, as shown in Fig.\ref{fig3:sub11} and Fig.\ref{fig3:sub12}.
+%\verb*|\renewcommand\thesubfigure{\asbuk{subfigure}}|
+{\color{blue}
+	\begin{verbatim}
+		\renewcommand\thesubfigure{\asbuk{subfigure}}
+	\end{verbatim}
+}
+
+And use the following command if you want the sub caption to be in English (default), as shown in Fig.\ref{fig3:sub21} and Fig.\ref{fig3:sub22}.
+%\verb*|\renewcommand{\thesubfigure}{\alph{subfigure}}|
+{\color{blue}
+	\begin{verbatim}
+		\renewcommand{\thesubfigure}{\alph{subfigure}}
+	\end{verbatim}
+}
+Use \verb|\hspace{0.xcm}| or \verb|\quad| or \verb|\qquad| to space images horizontally or at line breaks with \verb|\vfill|, and use \verb|\vspace{0.xcm}| to space images vertically with captions.
+
+\renewcommand\thesubfigure{\asbuk{subfigure}}
+\begin{figure}
+	\captionsetup[subfloat]{position=below}
+	\centering
+	\subfloat[]{\includegraphics[scale=0.4]{example-image-a}\label{fig3:sub11}} 
+	\hspace{0.5cm} %\qquad
+	\subfloat[]{\includegraphics[scale=0.4]{example-image-b}\label{fig3:sub12}}
+	\vspace{0.1cm}
+	\caption{Example using subfloat}\label{fig3:subfloat1}
+\end{figure}
+\renewcommand{\thesubfigure}{\alph{subfigure}}
+\begin{figure}
+	\captionsetup[subfloat]{position=below}
+	\centering
+	\subfloat[caption fig]{\includegraphics[scale=0.4]{example-image-a}\label{fig3:sub21}} 
+	\vfill %\hspace{0.5cm} %\qquad 
+	\subfloat[caption fig]{\includegraphics[scale=0.4]{example-image-b}\label{fig3:sub22}}
+	\vspace{0.1cm}
+	\caption{Example using subfloat}\label{fig3:subfloat2}
+\end{figure}

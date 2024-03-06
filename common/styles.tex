@@ -1,0 +1,108 @@
+%%====(NOTE)========================================================================================
+%	1. Dãn cách dòng với dòng (giống Line Spacing trong WORD): \DoubleSpacing; \OnehalfSpacing; \setSpacing{}
+% 	2. Thụt TAB ở Line đầu tiên sau (Chapter/Section/Subsection): \setlength{\parindent}{2.5em}
+%%======(begin)[ĐỊNH DẠNG KHỔ GIẤY]=========================================>>>>>>>>>>>>>>>>>>>
+%\usepackage{geometry}
+\geometry{a4paper, top=2cm, bottom=2cm, left=2.5cm, right=1cm, nofoot, nomarginpar}
+\setlength{\topskip}{0pt}   %размер дополнительного верхнего поля
+\setlength{\footskip}{12.3pt} % để xóa warning, согласно https://tex.stackexchange.com/a/334346
+%%% Интервалы %%%
+%% По ГОСТ Р 7.0.11-2011, пункту 5.3.6 требуется полуторный интервал
+%% Реализация средствами класса (на основе setspace) ближе к типографской классике.
+%% И правит сразу и в таблицах (если со звёздочкой)
+%\DoubleSpacing*     % Двойной интервал
+%\OnehalfSpacing*    % Полуторный интервал
+\setSpacing{1.5}   % Полуторный интервал, подобный Ворду (возможно, стоит включать вместе с предыдущей строкой)
+%%% Выравнивание и переносы %%%
+%% http://tex.stackexchange.com/questions/241343/what-is-the-meaning-of-fussy-sloppy-emergencystretch-tolerance-hbadness
+%% http://www.latex-community.org/forum/viewtopic.php?p=70342#p70342
+\tolerance 1414
+\hbadness 14145
+\emergencystretch 1.5em % В случае проблем регулировать в первую очередь
+\hfuzz 0.3pt
+\vfuzz \hfuzz
+%\raggedbottom
+%\sloppy                 % Избавляемся от переполнений
+\clubpenalty=10000      % Запрещаем разрыв страницы после первой строки абзаца
+\widowpenalty=10000     % Запрещаем разрыв страницы после последней строки абзаца
+\brokenpenalty=4991     % Ограничение на разрыв страницы, если строка заканчивается переносом
+%%=====(end)[ĐỊNH DẠNG KHỔ GIẤY]==============================================>>>>>>>>>>>>>>>>>>>
+
+
+%%=====(begin) [MODIFY package: memoir]========================================
+%%% Оформление заголовков глав, разделов, подразделов %%%
+%% Работа должна быть выполнена ... размером шрифта 12-14 пунктов (ГОСТ Р 7.0.11-2011, 5.3.8). То есть не должно быть надписей шрифтом более 14. Так и поставим.
+%% Эти установки будут давать одинаковый результат независимо от выбора базовым шрифтом 12 пт или 14 пт
+\newcommand{\basegostsectionfont}{\fontsize{14pt}{16pt}\selectfont\bfseries}
+% Заголовки отделяют от текста сверху и снизу 3 интервалами (ГОСТ Р 7.0.11-2011, 5.3.5)
+\newcommand*{\intafterskip}{24pt}	%maybe
+\makechapterstyle{thesisgost}{%
+	%\chapterstyle{default}
+	\renewcommand*{\chapterheadstart}{}	% dịch chapter lên vị trí header (đưa lên cao nhất)
+	%\setlength{\beforechapskip}{0pt} % length, tự giải thích, thường được đặt bằng \chapterheadstart, mặc định 50pt
+	%\setlength{\midchapskip}{0pt} %length, khoảng cách giữa tên/số chương và tiêu đề, thường được đặt bằng cách sử dụng \afterchapternum, mặc định là 20p
+	\setlength{\afterchapskip}{\intafterskip} %length, khoảng cách giữa tiêu đề chương và văn bản theo sau, thường được đặt bằng \afterchaptertitle, mặc định là 40pt
+	% 3 cái này để đưa chapter [numbering]. title về cùng size 14, bold
+	\renewcommand*{\chapnamefont}{\basegostsectionfont}	 %set font cho chữ chapter.
+	\renewcommand*{\chapnumfont}{\basegostsectionfont}	 %set font cho number của chapter. e.g 1
+	\renewcommand*{\chaptitlefont}{\basegostsectionfont} %set font cho title của chapter.
+	\renewcommand*{\afterchapternum}{.\space}   % thêm dấu chấm có khoảng trắng sau số phần
+	\renewcommand*{\printchapternum}{\centering\basegostsectionfont\thechapter} % căn giữa chapter
+	\renewcommand*{\printchapternonum}{\centering}
+}
+\setsecnumformat{\csname the#1\endcsname.\space} % thêm . và space vào sau number của section. e.g 1.1. title
+\settocdepth{subsection}    % chỉ mục đến subsection, e.g. 1.1.1
+\setsecnumdepth{subsection} % до какого уровня нумеровать подразделы
+% set fontsize và align (centering) cho section.
+\setsecheadstyle{\basegostsectionfont\centering}
+%\setsecindent{\otstuplen}
+% set fontsize và align (centering) cho subsection.
+\setsubsecheadstyle{\basegostsectionfont\centering}
+%\setsubsecindent{0pt}
+% set fontsize và align (centering) cho subsubsectisusu (ko dùng)
+%\setsubsubsecheadstyle{\basegostsectionfont\centering}
+%\setsubsubsecindent{0pt}
+\sethangfrom{\noindent #1} %все заголовки подразделов центрируются с учетом номера, как block
+\chapterstyle{thesisgost}
+
+%%% Khoảng cách giữa các tiêu đề (trước và sau)
+% Заголовки отделяют от текста сверху и снизу тремя интервалами (ГОСТ Р 7.0.11-2011, 5.3.5).
+\setbeforesecskip{\intafterskip}
+\setaftersecskip{\intafterskip}
+\setbeforesubsecskip{\intafterskip}
+\setaftersubsecskip{\intafterskip}
+\setbeforesubsubsecskip{\intafterskip}
+\setaftersubsubsecskip{\intafterskip}
+
+%%% Колонтитулы %%%
+% Порядковый номер страницы печатают на середине верхнего поля страницы (ГОСТ Р 7.0.11-2011, 5.3.8)
+% ĐÁNH SỐ TRANG (PAGE) LÊN PHÍA TRÊN, CHÍNH GIỮA.
+\makeevenhead{plain}{}{\rmfamily\thepage}{}
+\makeoddhead{plain}{}{\rmfamily\thepage}{}
+\makeevenfoot{plain}{}{}{}
+\makeoddfoot{plain}{}{}{}
+\pagestyle{plain}
+
+%%%% PHẦN MỤC LỤC - CONTENTS
+\renewcommand*{\cftappendixname}{\appendixname\space} % Слово Приложение в оглавлении
+\renewcommand*{\cftchaptername}{\chaptername\space} % chữ Chapter sẽ được viết trước mỗi số phần trong mục lục
+% thêm chấm (...) vào chapter ở phần mục lục (contents)
+\renewcommand{\cftchapterdotsep}{\cftdotsep}                % отбивка точками до номера страницы начала главы/раздела
+%% Переносить слова в заголовке не допускается (ГОСТ Р 7.0.11-2011, 5.3.5). Заголовки в оглавлении должны точно повторять заголовки в тексте (ГОСТ Р 7.0.11-2011, 5.2.3). Прямого указания на запрет переносов в оглавлении нет, но по той же логике невнесения искажений в смысл, лучше в оглавлении не переносить:
+\setrmarg{2.55em plus1fil}                             %To have the (sectional) titles in the ToC, etc., typeset ragged right with no hyphenation
+\renewcommand{\cftchapterpagefont}{\normalfont}        % нежирные номера страниц у глав в оглавлении
+\renewcommand{\cftchapterleader}{\cftdotfill{\cftchapterdotsep}}% нежирные точки до номеров страниц у глав в оглавлении
+%\renewcommand{\cftchapterfont}{}                       % нежирные названия глав в оглавлении
+\renewcommand\cftchapteraftersnum{.\space}       % добавляет точку с пробелом после номера раздела в оглавлении
+\renewcommand\cftsectionaftersnum{.\space}       % добавляет точку с пробелом после номера подраздела в оглавлении
+\renewcommand\cftsubsectionaftersnum{.\space}    % добавляет точку с пробелом после номера подподраздела в оглавлении
+\renewcommand\cftsubsubsectionaftersnum{.\space} % добавляет точку с пробелом после номера подподподраздела в оглавлении
+%%%%% TAB indent
+% Thụt lề đoạn đầu tiên sau tiêu đề phần - chỉ cần sử dụng 1 trong 2: \indentafterchapter hoặc \usepackage{indentfirst}
+% default: section và subsection tự động thụt vào, chapter thì ko.
+%Macro \indentafterchapter. From package: class-memoir.
+\indentafterchapter     % Красная строка после заголовков типа chapter
+%\usepackage{indentfirst} %Indent first paragraph after section header - 
+\setlength{\parindent}{2.5em}                   % Абзацный отступ. Должен быть одинаковым по всему тексту и равен пяти знакам (ГОСТ Р 7.0.11-2011, 5.3.7).
+
+%%=====(end) [MODIFY package: memoir]========================================
