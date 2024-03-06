@@ -2,6 +2,8 @@
 
 This is not an official $\LaTeX$ template. This template is based on [toftul/itmo-phd-thesis-template-en](https://github.com/toftul/itmo-phd-thesis-template-en) and [ITMO Шаблон LATEX для диссертации](https://dissovet.itmo.ru/index.php?main=110 )
 
+In addition, there is a repository of thesis templates for Russian [ngodanghien/ITMO-PhD-Template-RU](https://github.com/ngodanghien/ITMO-PhD-Template-RU)
+
 There is an official template on the [ITMO Dissertation Council](https://dissovet.itmo.ru/index.php?main=110) website, which is a fork of the well-known template [AndreyAkinshin/Russian-Phd-LaTeX-Dissertation-Template](https://github.com/AndreyAkinshin/Russian-Phd-LaTeX-Dissertation-Template).
 
 ## Why does this exist
