@@ -1,4 +1,4 @@
-# Шаблон кандидатской диссертации в Университете ИТМО
+# PhD Thesis template (English) for ITMO University
 
 This is not an official $\LaTeX$ template. This template is based on [toftul/itmo-phd-thesis-template-en](https://github.com/toftul/itmo-phd-thesis-template-en) and [ITMO Шаблон LATEX для диссертации](https://dissovet.itmo.ru/index.php?main=110 )
 
