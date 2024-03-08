@@ -14,8 +14,7 @@ This form has been rewritten more neatly and fully complies with ITMO's regulati
 ## What has changed
 
 1. Take advantage of all the strengths found in [toftul/itmo-phd-thesis-template-en](https://github.com/toftul/itmo-phd-thesis-template-en)
-2. Remove the file `biblio/own.bib`. I think I should design in my own style to highlight my work (no need to be too strict according to [GOST 7.0.100-2018](https://ctan.math.illinois.edu/macros/latex/contrib/biblatex-contrib/biblatex-gost/doc/biblatex-gost.pdf)). 
-Create your own style at `biblio/author`
+2. Continue using the file `biblio/own.bib` and automatically calculate the number of articles and automatically print them out in the appropriate locations. Check everything in `biblio/author` and `biblio/counter`. Citations still comply with style [GOST 7.0.100-2018](https://ctan.org/pkg/biblatex-gost?lang=en).
 3. Use only the necessary packages, leaving out the complicated stuff. Move your settings to the corresponding packages for easy management and future updates.
 
 ## How to use
@@ -64,3 +63,19 @@ The file contains references added in the following way: `\addbibresource{biblio
     **After all, it will be like this.** I like it :) And it is similar rules to writing the article (Оформление списка литературы) of Институт проблем управления им . В.А. Трапезникова РАН.
     > _*Gerasimov D., Popov A., Hien N., Nikiforov V.*_ Adaptive control of LTV systems with uncertain periodic coefficients // IFAC-PapersOnLine. — 2023. —
     Vol. 56, no. 2. — P. 9185–9190. — URL: [https : / / doi . org / 10 . 1016 / j .ifacol.2023.10.160.](https://doi.org/10.1016/j.ifacol.2023.10.160)
+
+6. In the file `biblio/own.bib`, if you only care about which article is {scopus/wos, vak}, add the line `keywords = {scopus}`, or `keywords = {vak}`. As for other articles that are not indexed above, you don't need to pay attention to them. They will be automatically printed in section: other articles.
+    ```json
+    @article{Gerasimov2023a,
+        keywords = {scopus, wos},
+        author = {Gerasimov, D and Popov, A and Hien, N.D. and Nikiforov, V},
+        journal = {IFAC-PapersOnLine},
+        issue = {2},
+        number = {2},
+        pages = {9185--9190}, 
+        title = {Adaptive control of LTV systems with uncertain periodic coefficients},
+        url = {https://doi.org/10.1016/j.ifacol.2023.10.160},
+        volume = {56},
+        year = {2023}
+    }
+    ``` 
