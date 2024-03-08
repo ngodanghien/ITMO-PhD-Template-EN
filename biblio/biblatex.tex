@@ -16,8 +16,12 @@
     sortcites=true,
     doi=false,
     isbn=false,
+    %https://tex.stackexchange.com/questions/12806/guidelines-for-customizing-biblatex-styles
+    giveninits=true,
+    maxbibnames=99,
+    movenames=false, %Put the author's name first.
 ]{biblatex}
-
+%При наличии 4-х и более имён авторов, редакторов, переводчиков и пр. ГОСТ позволяет на выбор либо выводить их полный список, либо сокращать его до одного имени с добавлением [et al.], [и др.] и пр.
 \addbibresource{biblio/references.bib}
 
 %%% citenum là 1 counter được khai báo trước đó, sử dụng \AtEveryBibitem để tự động tăng lên 1 biến đếm mỗi khi có lệnh liên quan \cite{} được gọi.

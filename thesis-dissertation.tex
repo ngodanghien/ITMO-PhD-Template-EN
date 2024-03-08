@@ -3,11 +3,11 @@
 \input{common/packages}		% Declare & setting the use of related packages
 \input{common/fonts}		% Configure to use russian font
 \input{common/styles}		% Format theme memoir follow ITMO style
-\input{common/counter}
-\input{biblio/biblatex}
+\input{biblio/biblatex}		% Configure biblatex with ГОСТ Р 7.0.5—2008
 \input{biblio/author}		% About PhD Student and publications.  
+\input{common/counter}		% Variables to count (including number of articles)
 
-\listfiles	%for debug
+%\listfiles	%for debug
 
 \begin{document}
 
@@ -29,6 +29,6 @@
 	\include{Dissertation/acknowledgements} % Благодарности
 	\appendix
 	\include{Dissertation/appendix}       	% Приложения, тут же свои публикации
-	\include{Dissertation/my_publications}
+	\include{Dissertation/my_publications}	% Insert PDF files of your articles
 	
 \end{document}

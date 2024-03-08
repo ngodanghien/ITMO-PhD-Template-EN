@@ -2,6 +2,14 @@
 \label{ch:ch2}
 The electronic version of the thesis should be made in A4 format (210x297 mm) with one and a half spacing and \textbf{font size 14 Times New Roman}.
 The thesis pages should have the following margins: \textbf{left - 25 mm, right - 10 mm, top - 20 mm, bottom - 20 mm.} The paragraph indention must be the same throughout the text and equal to five characters.
+{	\color{blue}
+	\begin{verbatim}
+		\usepackage{geometry}
+		\geometry{a4paper, top=2cm, bottom=2cm, left=2.5cm, right=1cm, nofoot, nomarginpar}
+		\setlength{\topskip}{0pt}
+		\setlength{\footskip}{12.3pt} % to remove  Warning.
+	\end{verbatim}
+}
 \section{Structure of the materials of the thesis}\label{sec:ch2/sec1}
 
 First 5 pages are created automatically in ISU $\Rightarrow$ \textcolor{red}{Table of contents should start at 6 pages:}
@@ -47,7 +55,7 @@ And need to link them when entering the chapter, e.g: Figure \ref{fig:3_1}
 	\end{verbatim}
 }
 
-\paragraph{References} the list of references are made in compliance with \textcolor{red}{GOST 7.0.100.}
+\paragraph{References} the list of references are made in compliance with \textcolor{red}{GOST 7.0.100 -2018}
 {
 	\color{blue}
 	\begin{verbatim}
