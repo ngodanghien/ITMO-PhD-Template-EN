@@ -54,34 +54,42 @@
 \section*{Основное содержание работы}
 
 В Главе~\ref{ch:ch1}...
-%\begin{figure}
-%	\centering
-%	\includegraphics[width=0.4\linewidth]{images/knuth}
-%	\caption{Knuth}
-%	\label{fig:my_label2}
-%\end{figure}
-%\begin{table}
-%	\centering
-%	\captionsetup{justification=centering} % выравнивание подписи по-центру
-%	\caption{Основные величины СИ}%\label{tab:unit:base}
-%	\begin{tabular}{llc}
-%		\toprule
-%		Название  & Команда                 & Символ         \\
-%		\midrule
-%		Ампер     & \verb|\ampere| & \si{\ampere}   \\
-%		Кандела   & \verb|\candela| & \si{\candela}  \\
-%		\bottomrule
-%	\end{tabular}
-%\end{table}
-%\begin{figure}
-%	\captionsetup[subfloat]{position=below}
-%	\centering
-%	\subfloat[caption fig (a).]{\includegraphics[scale=0.5]{example-image-a}\label{fig2:sub1}} 
-%	\hspace{0.5cm} %\qquad %\vfill
-%	\subfloat[caption fig (b).]{\includegraphics[scale=0.5]{example-image-b}\label{fig2:sub2}}
-%	\vspace{0.5cm}
-%	\caption{Example using subfloat}\label{fig:subfloat}
-%\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.4\linewidth]{images/knuth}
+	\caption{Knuth}
+	%\label{fig:my_label2}
+\end{figure}
+
+\begin{table}
+	\centering
+	\caption{Basic SI quantities}%\label{tab:unit:base}
+	\begin{tabular}{llc}
+		\toprule
+		Name 	& 	Command 	& 	Symbol         \\
+		\midrule
+		Ampere     & \verb|\ampere| & \si{\ampere}   \\
+		Candela   & \verb|\candela| & \si{\candela}  \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{align} %\label{eq:sec1}
+	1+2=3
+\end{align}
+
+\begin{assumption-syn-ru}
+	Здесь и далее знак коэффициента при управлении $b_m$
+	принимается известным. Без потери общности полагается $b_m >0$.
+\end{assumption-syn-ru}
+\begin{lemma-syn-ru} \label{lemma1}
+	content...
+\end{lemma-syn-ru}
+
+\begin{proof}[Доказательство леммы \ref{lemma1}]
+	content...
+\end{proof}
 
 \section*{Публикации автора по теме диссертации}
 

@@ -3,32 +3,10 @@
 \renewcommand{\tablename}{Table}
 \setcounter{figure}{0}
 \setcounter{table}{0}
+\setcounter{equation}{0}	% Reset equation numbering https://tex.stackexchange.com/questions/207532/reset-equation-numbering-after-each-section
 
 \chapter*{Synopsis}
 \addcontentsline{toc}{chapter}{Synopsis} 
-
-\begin{center}
-    General thesis summary
-\end{center}
-\begin{figure}
-	\centering
-	\includegraphics[width=0.4\linewidth]{images/knuth}
-	\caption{Knuth}
-	%\label{fig:my_label2}
-\end{figure}
-\begin{table}
-	\centering
-	\captionsetup{justification=centering} % выравнивание подписи по-центру
-	\caption{Basic SI quantities}%\label{tab:unit:base}
-	\begin{tabular}{llc}
-		\toprule
-		Name 	& 	Command 	& 	Symbol         \\
-		\midrule
-		Ampere     & \verb|\ampere| & \si{\ampere}   \\
-		Candela   & \verb|\candela| & \si{\candela}  \\
-		\bottomrule
-	\end{tabular}
-\end{table}
 
 \paragraph*{Relevance of the chosen topic.}
 \paragraph*{Goal.}
@@ -54,6 +32,44 @@ The main results of the thesis were presented at the following conferences:
 \section*{Main contents of the work}
 
 In Chapter~\ref{ch:ch1}...
+\begin{center}
+	General thesis summary
+\end{center}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.4\linewidth]{images/knuth}
+	\caption{Knuth}
+	%\label{fig:my_label2}
+\end{figure}
+\begin{table}
+	\centering
+	\captionsetup{justification=centering} % выравнивание подписи по-центру
+	\caption{Basic SI quantities}%\label{tab:unit:base}
+	\begin{tabular}{llc}
+		\toprule
+		Name 	& 	Command 	& 	Symbol         \\
+		\midrule
+		Ampere     & \verb|\ampere| & \si{\ampere}   \\
+		Candela   & \verb|\candela| & \si{\candela}  \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{align} %\label{eq:sec1}
+	1+2=3
+\end{align}
+
+\begin{assumption-syn-en}
+	Here and below, the sign of the coefficient when controlling $b_m$
+	accepted as known. Without loss of generality, we assume $b_m >0$.
+\end{assumption-syn-en}
+\begin{lemma-syn-en} \label{lemma1:1}
+	content...
+\end{lemma-syn-en}
+
+\begin{proof}[Proof Lemma \ref{lemma1:1}]
+	content...
+\end{proof}
 
 \section*{Publications relevant to this thesis}
 Key results of research are described in \theAllMyPapers~publications. Among them \theScopusPapers~are published in a journal indexed by Scopus and Web of Science. 
