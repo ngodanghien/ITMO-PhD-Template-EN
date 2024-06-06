@@ -5,23 +5,18 @@
 %https://ctan.math.illinois.edu/macros/latex/contrib/biblatex-contrib/biblatex-gost/doc/biblatex-gost.pdf
 %https://en.wikibooks.org/wiki/LaTeX/Bibliographies_with_biblatex_and_biber
 \usepackage[%
-    backend=biber,
-    bibencoding=utf8,
-    sorting=none,
-    style=gost-numeric,
-    language=autobib,
-    autolang=other,
-    clearlang=true,
-    defernumbers=true,
+    backend=biber, bibencoding=utf8,
+    sorting=none, style=gost-numeric,
+    language=autobib,  autolang=other,
+    clearlang=true,  defernumbers=true,
     sortcites=true,
-    doi=false,
+    doi=true,
+    url=false,
     isbn=false,
-    %https://tex.stackexchange.com/questions/12806/guidelines-for-customizing-biblatex-styles
     giveninits=true,
     maxbibnames=99,
     movenames=false, %Put the author's name first.
 ]{biblatex}
-%При наличии 4-х и более имён авторов, редакторов, переводчиков и пр. ГОСТ позволяет на выбор либо выводить их полный список, либо сокращать его до одного имени с добавлением [et al.], [и др.] и пр.
 \addbibresource{biblio/references.bib}
 
 %%% citenum là 1 counter được khai báo trước đó, sử dụng \AtEveryBibitem để tự động tăng lên 1 biến đếm mỗi khi có lệnh liên quan \cite{} được gọi.
